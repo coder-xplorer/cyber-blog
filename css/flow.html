@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>css 实现瀑布流 | 前端小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="记录前端学习历程">
+    
+    <link rel="preload" href="/assets/css/0.styles.4f6fbd2d.css" as="style"><link rel="preload" href="/assets/js/app.5cbc4714.js" as="script"><link rel="preload" href="/assets/js/2.6a4b97aa.js" as="script"><link rel="preload" href="/assets/js/11.1e913972.js" as="script"><link rel="preload" href="/assets/js/3.5070df70.js" as="script"><link rel="prefetch" href="/assets/js/10.b5a21553.js"><link rel="prefetch" href="/assets/js/12.b524de1d.js"><link rel="prefetch" href="/assets/js/13.0448ee5a.js"><link rel="prefetch" href="/assets/js/14.0bc2c7c1.js"><link rel="prefetch" href="/assets/js/15.b80ccc44.js"><link rel="prefetch" href="/assets/js/16.6912c4d5.js"><link rel="prefetch" href="/assets/js/17.c47fe146.js"><link rel="prefetch" href="/assets/js/18.1bb23a2a.js"><link rel="prefetch" href="/assets/js/19.45d77314.js"><link rel="prefetch" href="/assets/js/20.3bafbdda.js"><link rel="prefetch" href="/assets/js/21.6ed70c6d.js"><link rel="prefetch" href="/assets/js/22.cdf6884b.js"><link rel="prefetch" href="/assets/js/23.c32c68e8.js"><link rel="prefetch" href="/assets/js/4.52e2bd10.js"><link rel="prefetch" href="/assets/js/5.bc7d3773.js"><link rel="prefetch" href="/assets/js/6.689316d1.js"><link rel="prefetch" href="/assets/js/7.8300a108.js"><link rel="prefetch" href="/assets/js/8.5cd89bdb.js"><link rel="prefetch" href="/assets/js/9.763d9791.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4f6fbd2d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/css/" class="nav-link router-link-active">
+  Css
+</a></div><div class="nav-item"><a href="/js/" class="nav-link">
+  JavaScript
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  Other
+</a></div><div class="nav-item"><a href="https://gitee.com/honeyhao" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/css/" class="nav-link router-link-active">
+  Css
+</a></div><div class="nav-item"><a href="/js/" class="nav-link">
+  JavaScript
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  Other
+</a></div><div class="nav-item"><a href="https://gitee.com/honeyhao" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Css基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Css效果</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/css/flow.html" aria-current="page" class="active sidebar-link">css 实现瀑布流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/css/flow.html#效果展示" class="sidebar-link">效果展示</a></li><li class="sidebar-sub-header"><a href="/css/flow.html#实现方式" class="sidebar-link">实现方式</a></li></ul></li><li><a href="/css/skeleton.html" class="sidebar-link">骨架屏</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="css-实现瀑布流"><a href="#css-实现瀑布流" class="header-anchor">#</a> css 实现瀑布流</h1> <h2 id="效果展示"><a href="#效果展示" class="header-anchor">#</a> 效果展示</h2> <p>💞 💞
+<div class="masonry"><div class="item"><img src="https://picsum.photos/360/460?random=1"></div> <div class="item"><img src="https://picsum.photos/360/520?random=2"></div> <div class="item"><img src="https://picsum.photos/360/400?random=3"></div> <div class="item"><img src="https://picsum.photos/360/420?random=4"></div> <div class="item"><img src="https://picsum.photos/360/480?random=5"></div> <div class="item"><img src="https://picsum.photos/360/500?random=6"></div> <div class="item"><img src="https://picsum.photos/360/500?random=7"></div> <div class="item"><img src="https://picsum.photos/360/400?random=8"></div> <div class="item"><img src="https://picsum.photos/360/440?random=9"></div> <div class="item"><img src="https://picsum.photos/360/420?random=10"></div> <div class="item"><img src="https://picsum.photos/360/500?random=11"></div> <div class="item"><img src="https://picsum.photos/360/460?random=12"></div> <div class="item"><img src="https://picsum.photos/360/480?random=13"></div> <div class="item"><img src="https://picsum.photos/360/440?random=14"></div> <div class="item"><img src="https://picsum.photos/360/420?random=15"></div></div></p> <h2 id="实现方式"><a href="#实现方式" class="header-anchor">#</a> 实现方式</h2> <p><strong>通过 column-count 设置为 4 列 间距为 0 给每一个 Item 一个 padding, 图片设置 width: 100%; height:auto; 即可实现效果</strong></p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.masonry</span> <span class="token punctuation">{</span>
+  <span class="token property">column-count</span><span class="token punctuation">:</span> 4<span class="token punctuation">;</span>
+  <span class="token property">column-gap</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.item</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.item img</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span> <span class="token comment">/* 消除图片间隙 */</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* display : flex 实现 */</span>
+<span class="token selector">.masonry</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span> <span class="token comment">/*设置垂直方向排布 */</span>
+  <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span> <span class="token comment">/* 换行*/</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 1000px<span class="token punctuation">;</span> <span class="token comment">/* 设置高度，放不下就换行， 图片的高度不一样，会展示瀑布流效果*/</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.item</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 25%<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.item img</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><a href="https://picsum.photos/" target="_blank" rel="noopener noreferrer">Img From<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/css/grid.html" class="prev">
+        Grid 网格布局
+      </a></span> <span class="next"><a href="/css/skeleton.html">
+        骨架屏
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5cbc4714.js" defer></script><script src="/assets/js/2.6a4b97aa.js" defer></script><script src="/assets/js/11.1e913972.js" defer></script><script src="/assets/js/3.5070df70.js" defer></script>
+  </body>
+</html>
