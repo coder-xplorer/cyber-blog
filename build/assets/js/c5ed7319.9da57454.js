@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[3545],{7275:e=>{e.exports=JSON.parse('{"label":"hola","permalink":"/cyber-blog/blog/tags/hola","allTagsPath":"/cyber-blog/blog/tags","count":1,"unlisted":false}')}}]);
