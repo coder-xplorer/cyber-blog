@@ -1,0 +1,72 @@
+.recordItem {
+  padding: 1em 2em;
+  width: 680px;
+  margin: 32px;
+}
+
+.itemTitle {
+  font-size: 2em;
+  line-height: 1.5em;
+  font-weight: 600;
+}
+
+.itemTime {
+  font-size: 0.9em;
+  padding: 8px 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.itemAuth {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.itemAuth img {
+  margin-right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.nameBox {
+  padding: 0.5rem;
+}
+.nameBox .name {
+  font-weight: 600;
+}
+
+.nameBox .desc {
+  color: #999;
+  font-weight: 500;
+}
+
+.tagBox {
+  padding: 0.5rem 0;
+}
+
+.tagBox .tag {
+  font-size: 0.8em;
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px 10px;
+  background-color: var(--ifm-color-primary-light);
+  margin-right: 0.5rem;
+}
+
+.content {
+  padding: 0.5rem 0px;
+  font-weight: 500;
+}
+
+.footer {
+  font-weight: 500;
+}
+
+.moreBtn {
+  margin-top: 0.5rem;
+  cursor: pointer;
+  color: var(--ifm-color-primary-light);
+  font-size: 14px;
+  font-weight: 500;
+}
