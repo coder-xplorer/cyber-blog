@@ -13,13 +13,15 @@ export default function Record(props) {
           <div className={styles.desc}>A Front-End Web Developer</div>
         </div>
       </div>
-      <div className={styles.tagBox}>
-        {tags.map((tag) => (
-          <span key={tag} className={styles.tag}>
-            {tag}
-          </span>
-        ))}
-      </div>
+      {tags?.length ? (
+        <div className={styles.tagBox}>
+          {tags.map((tag) => (
+            <span key={tag} className={styles.tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+      ) : null}
       <div className={styles.content}>{content}</div>
       <Link className={styles.moreBtn} to={href}>
         阅读更多
