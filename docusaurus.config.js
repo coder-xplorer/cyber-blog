@@ -8,7 +8,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '进击的前端工程师',
+  title: '乐游的Blog',
+  tagline: '进击的前端工程师',
   favicon: 'img/Bob.jpg',
 
   // Set the production url of your site here
@@ -30,8 +31,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-cn',
+    locales: ['zh-cn'],
   },
 
   presets: [

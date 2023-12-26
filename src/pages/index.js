@@ -5,9 +5,8 @@ import List from './help';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  console.log(siteConfig, 'siteConfig');
   return (
-    <Layout title="乐游的Blog" description={siteConfig.title}>
+    <Layout title={siteConfig.title} description={siteConfig.tagline}>
       <main style={{ margin: '0 auto' }}>
         {List.map((record) => (
           <Record
