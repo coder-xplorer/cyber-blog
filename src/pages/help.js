@@ -10,6 +10,6 @@ export default [
     title: '无线端开发（H5）注意事项',
     tags: ['前端', 'React'],
     content: '无线端开发注意事项，点击阅读更多。',
-    href: '/docs/iframe-communication',
+    href: '/docs/wireless',
   },
 ];

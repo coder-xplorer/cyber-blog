@@ -40,6 +40,11 @@
   font-weight: 500;
 }
 
+.wrapperTags {
+  display: flex;
+  align-items: center;
+}
+
 .tagBox {
   padding: 0.5rem 0;
 }
