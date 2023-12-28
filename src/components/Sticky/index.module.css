@@ -5,6 +5,7 @@
   border-radius: 15px;
   overflow: hidden;
   overflow-y: scroll;
+  border: 1px solid #f5f6f7;
 }
 
 .header {
