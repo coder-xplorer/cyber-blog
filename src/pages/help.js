@@ -12,4 +12,10 @@ export default [
     content: '无线端开发注意事项，点击阅读更多。',
     href: '/docs/wireless',
   },
+  {
+    title: 'Web Component',
+    tags: ['WebComponent', 'React'],
+    content: 'WebComponent（原生组件）的一些用法梳理。',
+    href: '/docs/web-component',
+  },
 ];

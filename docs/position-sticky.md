@@ -2,7 +2,7 @@ import Sticky from "../src/components/Sticky"
 
 # position：sticky 案例实现
 
-**设置了<code>position:sticky</code>的元素并不会脱离文档流。**
+**设置了 <code>position:sticky</code> 的元素并不会脱离文档流。**
 
 - 当元素在区域内，元素不受定位的影响（<code>top</code>、<code>left</code>等设置无效）
 - 当发生滚动，元素就要移出区域时，定位又会变成<code>fixed</code>，根据设置的<code>left</code>、<code>top</code>的值进行定位，像是<code>fixed</code>效果
