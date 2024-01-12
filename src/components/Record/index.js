@@ -1,5 +1,5 @@
 import Link from '@docusaurus/Link';
-import styles from './styles.module.css';
+import styles from './index.module.css';
 
 export default function Record(props) {
   const { title, tags, content, href } = props;

@@ -1,4 +1,4 @@
-import Sticky from "../src/components/Sticky"
+import Sticky from "../../src/components/Sticky";
 
 # position：sticky 案例实现
 
