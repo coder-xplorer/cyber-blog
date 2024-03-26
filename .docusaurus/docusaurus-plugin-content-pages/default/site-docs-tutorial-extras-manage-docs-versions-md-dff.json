@@ -1,0 +1,11 @@
+{
+  "type": "mdx",
+  "permalink": "/tutorial-extras/manage-docs-versions",
+  "source": "@site/docs/tutorial-extras/manage-docs-versions.md",
+  "title": "Manage Docs Versions",
+  "description": "Docusaurus can manage multiple versions of your docs.",
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "unlisted": false
+}

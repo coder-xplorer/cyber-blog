@@ -1,0 +1,267 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "label": "Next",
+          "banner": null,
+          "badge": false,
+          "noIndex": false,
+          "className": "docs-version-current",
+          "path": "/docs",
+          "tagsPath": "/docs/tags",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/huanghao/Desktop/myCode/cyber-blog/sidebars.js",
+          "contentPath": "/Users/huanghao/Desktop/myCode/cyber-blog/docs",
+          "contentPathLocalized": "/Users/huanghao/Desktop/myCode/cyber-blog/i18n/zh-cn/docusaurus-plugin-content-docs/current",
+          "docs": [
+            {
+              "id": "case/guide",
+              "title": "引导实现",
+              "description": "",
+              "source": "@site/docs/case/guide.md",
+              "sourceDirName": "case",
+              "slug": "/case/guide",
+              "permalink": "/docs/case/guide",
+              "draft": false,
+              "unlisted": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "案例实现",
+                "permalink": "/docs/case/"
+              },
+              "next": {
+                "title": "position：sticky 案例实现",
+                "permalink": "/docs/case/position-sticky"
+              }
+            },
+            {
+              "id": "case/index",
+              "title": "案例实现",
+              "description": "",
+              "source": "@site/docs/case/index.md",
+              "sourceDirName": "case",
+              "slug": "/case/",
+              "permalink": "/docs/case/",
+              "draft": false,
+              "unlisted": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Iframe 通信",
+                "permalink": "/docs/iframe-communication"
+              },
+              "next": {
+                "title": "引导实现",
+                "permalink": "/docs/case/guide"
+              }
+            },
+            {
+              "id": "case/position-sticky",
+              "title": "position：sticky 案例实现",
+              "description": "设置了 position:sticky 的元素并不会脱离文档流。",
+              "source": "@site/docs/case/position-sticky.md",
+              "sourceDirName": "case",
+              "slug": "/case/position-sticky",
+              "permalink": "/docs/case/position-sticky",
+              "draft": false,
+              "unlisted": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "引导实现",
+                "permalink": "/docs/case/guide"
+              },
+              "next": {
+                "title": "WebComponent",
+                "permalink": "/docs/web-component"
+              }
+            },
+            {
+              "id": "iframe-communication",
+              "title": "Iframe 通信",
+              "description": "需求背景",
+              "source": "@site/docs/iframe-communication.md",
+              "sourceDirName": ".",
+              "slug": "/iframe-communication",
+              "permalink": "/docs/iframe-communication",
+              "draft": false,
+              "unlisted": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "案例实现",
+                "permalink": "/docs/case/"
+              }
+            },
+            {
+              "id": "web-component",
+              "title": "WebComponent",
+              "description": "webComponent 原生组件 具有天然的隔离性、兼容性，同时可以使用 react、vue 组件接入到原生组件中",
+              "source": "@site/docs/web-component.md",
+              "sourceDirName": ".",
+              "slug": "/web-component",
+              "permalink": "/docs/web-component",
+              "draft": false,
+              "unlisted": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "position：sticky 案例实现",
+                "permalink": "/docs/case/position-sticky"
+              },
+              "next": {
+                "title": "无线端开发注意事项",
+                "permalink": "/docs/wireless"
+              }
+            },
+            {
+              "id": "wireless",
+              "title": "无线端开发注意事项",
+              "description": "meta 标签",
+              "source": "@site/docs/wireless.md",
+              "sourceDirName": ".",
+              "slug": "/wireless",
+              "permalink": "/docs/wireless",
+              "draft": false,
+              "unlisted": false,
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "WebComponent",
+                "permalink": "/docs/web-component"
+              }
+            }
+          ],
+          "drafts": [],
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "doc",
+                "id": "iframe-communication"
+              },
+              {
+                "type": "category",
+                "label": "案例实现",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "case/guide"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "case/position-sticky"
+                  }
+                ],
+                "link": {
+                  "type": "doc",
+                  "id": "case/index"
+                }
+              },
+              {
+                "type": "doc",
+                "id": "web-component"
+              },
+              {
+                "type": "doc",
+                "id": "wireless"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": {
+      "blogSidebarTitle": "Recent posts",
+      "blogPosts": [
+        {
+          "id": "/resource",
+          "metadata": {
+            "permalink": "/blog/resource",
+            "source": "@site/blog/resource.mdx",
+            "title": "资源",
+            "description": "简书记录文档，点击查看",
+            "date": "2024-01-04T05:58:17.000Z",
+            "formattedDate": "2024年1月4日",
+            "tags": [],
+            "readingTime": 0.055,
+            "hasTruncateMarker": false,
+            "authors": [],
+            "frontMatter": {},
+            "unlisted": false
+          },
+          "content": "简书记录文档，[点击查看](https://www.jianshu.com/u/305f82df13e1)"
+        }
+      ],
+      "blogListPaginated": [
+        {
+          "items": [
+            "/resource"
+          ],
+          "metadata": {
+            "permalink": "/blog",
+            "page": 1,
+            "postsPerPage": 10,
+            "totalPages": 1,
+            "totalCount": 1,
+            "blogDescription": "Blog",
+            "blogTitle": "Blog"
+          }
+        }
+      ],
+      "blogTags": {},
+      "blogTagsListPath": "/blog/tags"
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/help",
+        "source": "@site/src/pages/help.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/markdown-page",
+        "source": "@site/src/pages/markdown-page.md",
+        "title": "Markdown page example",
+        "description": "You don't need React to write simple standalone pages.",
+        "frontMatter": {
+          "title": "Markdown page example"
+        },
+        "unlisted": false
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {},
+  "docusaurus-theme-classic": {},
+  "docusaurus-bootstrap-plugin": {},
+  "docusaurus-mdx-fallback-plugin": {}
+}

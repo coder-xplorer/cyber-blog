@@ -1,0 +1,11 @@
+{
+  "type": "mdx",
+  "permalink": "/tutorial-basics/congratulations",
+  "source": "@site/docs/tutorial-basics/congratulations.md",
+  "title": "Congratulations!",
+  "description": "You have just learned the basics of Docusaurus and made some changes to the initial template.",
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "unlisted": false
+}

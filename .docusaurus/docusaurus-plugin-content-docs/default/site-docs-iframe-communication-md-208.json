@@ -1,0 +1,22 @@
+{
+  "id": "iframe-communication",
+  "title": "Iframe 通信",
+  "description": "需求背景",
+  "source": "@site/docs/iframe-communication.md",
+  "sourceDirName": ".",
+  "slug": "/iframe-communication",
+  "permalink": "/docs/iframe-communication",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "案例实现",
+    "permalink": "/docs/case/"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "web-component",
+  "title": "WebComponent",
+  "description": "webComponent 原生组件 具有天然的隔离性、兼容性，同时可以使用 react、vue 组件接入到原生组件中",
+  "source": "@site/docs/web-component.md",
+  "sourceDirName": ".",
+  "slug": "/web-component",
+  "permalink": "/docs/web-component",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "position：sticky 案例实现",
+    "permalink": "/docs/case/position-sticky"
+  },
+  "next": {
+    "title": "无线端开发注意事项",
+    "permalink": "/docs/wireless"
+  }
+}

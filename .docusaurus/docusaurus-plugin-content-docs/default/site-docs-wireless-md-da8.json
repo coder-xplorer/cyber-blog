@@ -1,0 +1,19 @@
+{
+  "id": "wireless",
+  "title": "无线端开发注意事项",
+  "description": "meta 标签",
+  "source": "@site/docs/wireless.md",
+  "sourceDirName": ".",
+  "slug": "/wireless",
+  "permalink": "/docs/wireless",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "WebComponent",
+    "permalink": "/docs/web-component"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "mdx",
+  "permalink": "/tutorial-basics/create-a-document",
+  "source": "@site/docs/tutorial-basics/create-a-document.md",
+  "title": "Create a Document",
+  "description": "Documents are groups of pages connected through:",
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "unlisted": false
+}

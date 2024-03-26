@@ -1,0 +1,11 @@
+{
+  "type": "mdx",
+  "permalink": "/tutorial-basics/create-a-blog-post",
+  "source": "@site/docs/tutorial-basics/create-a-blog-post.md",
+  "title": "Create a Blog Post",
+  "description": "Docusaurus creates a page for each blog post, but also a blog index page, a tag system, an RSS feed...",
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "unlisted": false
+}

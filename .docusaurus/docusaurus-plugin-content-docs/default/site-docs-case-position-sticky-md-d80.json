@@ -1,0 +1,23 @@
+{
+  "id": "case/position-sticky",
+  "title": "position：sticky 案例实现",
+  "description": "设置了 position:sticky 的元素并不会脱离文档流。",
+  "source": "@site/docs/case/position-sticky.md",
+  "sourceDirName": "case",
+  "slug": "/case/position-sticky",
+  "permalink": "/docs/case/position-sticky",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "引导实现",
+    "permalink": "/docs/case/guide"
+  },
+  "next": {
+    "title": "WebComponent",
+    "permalink": "/docs/web-component"
+  }
+}

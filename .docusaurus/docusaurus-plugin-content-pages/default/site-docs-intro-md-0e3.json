@@ -1,0 +1,11 @@
+{
+  "type": "mdx",
+  "permalink": "/intro",
+  "source": "@site/docs/intro.md",
+  "title": "Tutorial Intro",
+  "description": "Let's discover Docusaurus in less than 5 minutes.",
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "unlisted": false
+}

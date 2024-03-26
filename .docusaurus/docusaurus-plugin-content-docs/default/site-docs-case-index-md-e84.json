@@ -1,0 +1,23 @@
+{
+  "id": "case/index",
+  "title": "案例实现",
+  "description": "",
+  "source": "@site/docs/case/index.md",
+  "sourceDirName": "case",
+  "slug": "/case/",
+  "permalink": "/docs/case/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Iframe 通信",
+    "permalink": "/docs/iframe-communication"
+  },
+  "next": {
+    "title": "引导实现",
+    "permalink": "/docs/case/guide"
+  }
+}

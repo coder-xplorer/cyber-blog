@@ -1,0 +1,58 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "iframe-communication",
+          "docs": [
+            {
+              "id": "case/guide",
+              "path": "/docs/case/guide",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "case/index",
+              "path": "/docs/case/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "case/position-sticky",
+              "path": "/docs/case/position-sticky",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "iframe-communication",
+              "path": "/docs/iframe-communication",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "web-component",
+              "path": "/docs/web-component",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "wireless",
+              "path": "/docs/wireless",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/iframe-communication",
+                "label": "iframe-communication"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

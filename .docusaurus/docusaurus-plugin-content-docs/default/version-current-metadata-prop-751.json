@@ -1,0 +1,96 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "noIndex": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "tutorialSidebar": [
+      {
+        "type": "link",
+        "label": "Iframe 通信",
+        "href": "/docs/iframe-communication",
+        "docId": "iframe-communication",
+        "unlisted": false
+      },
+      {
+        "type": "category",
+        "label": "案例实现",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "引导实现",
+            "href": "/docs/case/guide",
+            "docId": "case/guide",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "position：sticky 案例实现",
+            "href": "/docs/case/position-sticky",
+            "docId": "case/position-sticky",
+            "unlisted": false
+          }
+        ],
+        "href": "/docs/case/"
+      },
+      {
+        "type": "link",
+        "label": "WebComponent",
+        "href": "/docs/web-component",
+        "docId": "web-component",
+        "unlisted": false
+      },
+      {
+        "type": "link",
+        "label": "无线端开发注意事项",
+        "href": "/docs/wireless",
+        "docId": "wireless",
+        "unlisted": false
+      }
+    ]
+  },
+  "docs": {
+    "case/guide": {
+      "id": "case/guide",
+      "title": "引导实现",
+      "description": "",
+      "sidebar": "tutorialSidebar"
+    },
+    "case/index": {
+      "id": "case/index",
+      "title": "案例实现",
+      "description": "",
+      "sidebar": "tutorialSidebar"
+    },
+    "case/position-sticky": {
+      "id": "case/position-sticky",
+      "title": "position：sticky 案例实现",
+      "description": "设置了 position:sticky 的元素并不会脱离文档流。",
+      "sidebar": "tutorialSidebar"
+    },
+    "iframe-communication": {
+      "id": "iframe-communication",
+      "title": "Iframe 通信",
+      "description": "需求背景",
+      "sidebar": "tutorialSidebar"
+    },
+    "web-component": {
+      "id": "web-component",
+      "title": "WebComponent",
+      "description": "webComponent 原生组件 具有天然的隔离性、兼容性，同时可以使用 react、vue 组件接入到原生组件中",
+      "sidebar": "tutorialSidebar"
+    },
+    "wireless": {
+      "id": "wireless",
+      "title": "无线端开发注意事项",
+      "description": "meta 标签",
+      "sidebar": "tutorialSidebar"
+    }
+  }
+}

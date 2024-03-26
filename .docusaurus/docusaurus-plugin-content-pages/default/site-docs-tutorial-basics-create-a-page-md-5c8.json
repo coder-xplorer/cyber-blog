@@ -1,0 +1,11 @@
+{
+  "type": "mdx",
+  "permalink": "/tutorial-basics/create-a-page",
+  "source": "@site/docs/tutorial-basics/create-a-page.md",
+  "title": "Create a Page",
+  "description": "Add Markdown or React files to src/pages to create a standalone page:",
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "unlisted": false
+}
