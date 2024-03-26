@@ -72,11 +72,12 @@ export default () => {
     coverGuide(coverRef, targetEleArr[index]);
   };
   return (
-    <div ref={coverRef} className={Styles.guide}>
-      <span onClick={handleClick}>开始</span>
-      <span id="one">第一步</span>
-      <span id="two">第二步</span>
-      <span id="three">第三步</span>
-    </div>
+    <div>敬请期待</div>
+    // <div ref={coverRef} className={Styles.guide}>
+    //   <span onClick={handleClick}>开始</span>
+    //   <span id="one">第一步</span>
+    //   <span id="two">第二步</span>
+    //   <span id="three">第三步</span>
+    // </div>
   );
 };
