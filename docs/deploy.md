@@ -1,10 +1,11 @@
 # docusaurus 部署在 Github Page 上
 
-实现 push 代码后，自动部署。
+:::info
+**功能点：实现 push 代码后，自动部署。**
+[官方文档教程](https://docusaurus.io/zh-CN/docs/deployment)
+:::
 
-文档教程 [https://docusaurus.io/zh-CN/docs/deployment]
-
-### 1、第一步
+### 第一步
 
 在安装了 docusaurus 后，需要在 docusaurus.config.js 文件中配置
 
@@ -85,7 +86,10 @@ jobs:
 
 我在部署的时候也遇到了很多坑，这里只是简单记录下大概流程。也可以查看最上方的官方文档。
 
-踩坑 1：i18n 设置中文的字段是 "zh-Hans"
-踩坑 2：在 docusaurus 中 .js 会被当成独立的页面去打包，所以要导出为 funtion 或者 class 的组件形式，否则会打包失败。（这里我导出的是一个数组，所以导致打包失败）
+- 踩坑 1：i18n 设置中文的字段是 "zh-Hans"。
+- 踩坑 2：在 docusaurus 中 .js 会被当成独立的页面去打包，所以要导出为 funtion 或者 class 的组件形式，否则会打包失败。（这里我导出的是一个数组，所以导致打包失败）
 
-另外，git action 上也可以看到部署失败的日志。可以根据日志，找到失败的原因。
+:::tip
+
+**另外，git action 上也可以看到部署失败的日志。可以根据日志，找到失败的原因。**
+:::
