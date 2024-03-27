@@ -13,7 +13,7 @@ const config = {
   favicon: 'img/Bob.jpg',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://coder-xplorer.github.io/cyber-blog/',
 
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
@@ -21,7 +21,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'cyber-blog', // Usually your GitHub org/user name.
+  organizationName: 'coder-xplorer', // Usually your GitHub org/user name.
   projectName: 'cyber-blog', // Usually your repo name.
 
   onBrokenLinks: 'throw',
