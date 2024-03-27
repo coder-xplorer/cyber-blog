@@ -52,10 +52,10 @@ import Styles from './index.module.css';
 //   }
 // };
 
-export default () => {
+export default function Guide() {
   return (
     <BrowserOnly>
       <div>敬请期待</div>
     </BrowserOnly>
   );
-};
+}

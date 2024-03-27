@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 
-export default () => {
+export default function Sticky() {
   return (
     <div className={styles.stickyContainer}>
       <div className={styles.header}>Header</div>
@@ -17,4 +17,4 @@ export default () => {
       </main>
     </div>
   );
-};
+}
