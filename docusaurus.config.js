@@ -64,7 +64,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Blog',
+        title: '乐游的前端小站',
         logo: {
           alt: 'Blog Logo',
           src: 'img/Bob.jpg',
@@ -77,9 +77,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'right',
-            label: 'Record',
+            label: '记录',
           },
-          { to: '/blog', label: 'Other', position: 'right' },
+          { to: '/blog', label: '工具', position: 'right' },
           {
             href: 'https://github.com/coder-xplorer',
             label: 'GitHub',
