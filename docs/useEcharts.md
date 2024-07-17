@@ -6,16 +6,7 @@
 
 ```ts
 import * as echarts from 'echarts/core';
-import {
-  onMounted,
-  onUnmounted,
-  onUpdated,
-  watchEffect,
-  shallowRef,
-  type Ref,
-  watch,
-  onBeforeMount,
-} from 'vue';
+import { onMounted, onUnmounted, ref, type Ref } from 'vue';
 import type { ECharts, EChartsCoreOption } from 'echarts/core';
 import { BarChart, LineChart } from 'echarts/charts';
 import {
@@ -32,9 +23,9 @@ import { CanvasRenderer } from 'echarts/renderers';
 export default function useEcharts(
   elRef: Ref<HTMLElement | null>,
   options: EChartsCoreOption
-): any {
+): { chartInstance: Ref<ECharts | null> } {
   const { use, init } = echarts;
-  const chartInstance = shallowRef<ECharts | null>(null);
+  const chartInstance: Ref<ECharts | null> = ref(null);
   use([
     BarChart,
     LineChart,
@@ -54,7 +45,9 @@ export default function useEcharts(
   };
   const initChart = () => {
     if (elRef.value && options) {
-      chartInstance.value = init(elRef.value);
+      if (!chartInstance.value) {
+        chartInstance.value = init(elRef.value);
+      }
       setOption(options);
       window.addEventListener('resize', resize);
     }
