@@ -4,9 +4,15 @@
 首先需要按需加载 echarts
 通过 use() 使用需要的组件
 
-```ts
+:::warning
+
+- 在使用的时候，div 的宽度设置为 width: 100%，如果设置固定宽度，Echarts.resize() 方法会失效；
+- 在 useEcharts 中定义 Echarts 的实例要使用 shallowRef，而不是 ref，如果使用 ref，会报 type 类型错误。不要使用 ref 或 reactive 包装 echarts 实例。 使用公共变量或 shallowRef 以避免对 echarts 实例进行深度监视。
+  :::
+
+```ts title="@/hooks/useEcharts"
 import * as echarts from 'echarts/core';
-import { onMounted, onUnmounted, ref, type Ref } from 'vue';
+import { onMounted, onUnmounted, shallowRef, type Ref } from 'vue';
 import type { ECharts, EChartsCoreOption } from 'echarts/core';
 import { BarChart, LineChart } from 'echarts/charts';
 import {
@@ -25,7 +31,7 @@ export default function useEcharts(
   options: EChartsCoreOption
 ): { chartInstance: Ref<ECharts | null> } {
   const { use, init } = echarts;
-  const chartInstance: Ref<ECharts | null> = ref(null);
+  const chartInstance: Ref<ECharts | null> = shallowRef(null);
   use([
     BarChart,
     LineChart,
@@ -40,7 +46,7 @@ export default function useEcharts(
     UniversalTransition,
   ]);
 
-  const setOption = (options: EChartsCoreOption) => {
+  const handleSetOption = (options: EChartsCoreOption) => {
     chartInstance.value && chartInstance.value.setOption(options);
   };
   const initChart = () => {
@@ -48,7 +54,7 @@ export default function useEcharts(
       if (!chartInstance.value) {
         chartInstance.value = init(elRef.value);
       }
-      setOption(options);
+      handleSetOption(options);
       window.addEventListener('resize', resize);
     }
   };
@@ -76,7 +82,7 @@ export default function useEcharts(
 
 使用的代码事例
 
-```ts
+```ts title="vue"
 import useEcharts from '@/hooks/useEcharts';
 import { ref, onMounted, nextTick, type Ref } from 'vue';
 
@@ -99,16 +105,10 @@ const options = {
 useEcharts(chartRef, options);
 ```
 
-```html
+```html title="html"
 <template>
   <div class="wrapper">
     <div ref="chartRef" style="height: 300px"></div>
   </div>
 </template>
 ```
-
-:::warning
-
-在使用的时候 div 的宽度设置为 width: 100% 或者不设置，如果设置固定宽度，Echarts.resize() 方法会失效
-
-:::
