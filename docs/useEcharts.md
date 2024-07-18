@@ -22,6 +22,7 @@ import {
   LegendComponent,
   DatasetComponent, // 数据集组件
   TransformComponent, // 内置数据转换器组件 (filter, sort)
+  ToolboxComponent,
 } from 'echarts/components';
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
@@ -29,9 +30,12 @@ import { CanvasRenderer } from 'echarts/renderers';
 export default function useEcharts(
   elRef: Ref<HTMLElement | null>,
   options: EChartsCoreOption
-): { chartInstance: Ref<ECharts | null> } {
+): {
+  chartInstance: ECharts | null;
+  updateChart: (options: EChartsCoreOption) => void;
+} {
   const { use, init } = echarts;
-  const chartInstance: Ref<ECharts | null> = shallowRef(null);
+  let chartInstance: ECharts | null = null;
   use([
     BarChart,
     LineChart,
@@ -44,25 +48,37 @@ export default function useEcharts(
     CanvasRenderer,
     LabelLayout,
     UniversalTransition,
+    ToolboxComponent,
   ]);
 
   const handleSetOption = (options: EChartsCoreOption) => {
-    chartInstance.value && chartInstance.value.setOption(options);
+    chartInstance && chartInstance?.setOption(options);
   };
   const initChart = () => {
     if (elRef.value && options) {
-      if (!chartInstance.value) {
-        chartInstance.value = init(elRef.value);
+      if (!chartInstance) {
+        chartInstance = init(elRef.value);
       }
       handleSetOption(options);
       window.addEventListener('resize', resize);
     }
   };
 
+  const updateChart = (options: EChartsCoreOption) => {
+    if (!chartInstance) initChart();
+    chartInstance?.clear();
+    chartInstance?.setOption(options);
+  };
+
   const resize = () => {
-    if (chartInstance.value) {
-      chartInstance.value.resize();
+    if (chartInstance) {
+      chartInstance.resize();
     }
+  };
+
+  const clearChart = () => {
+    chartInstance?.dispose();
+    chartInstance = null;
   };
 
   onMounted(() => {
@@ -70,12 +86,13 @@ export default function useEcharts(
   });
 
   onUnmounted(() => {
-    chartInstance.value = null;
+    clearChart();
     window.removeEventListener('resize', resize);
   });
 
   return {
     chartInstance,
+    updateChart,
   };
 }
 ```
