@@ -11,8 +11,8 @@
   :::
 
 ```ts title="@/hooks/useEcharts"
-import * as echarts from 'echarts/core';
-import { onMounted, onUnmounted, shallowRef, type Ref } from 'vue';
+iimport * as echarts from 'echarts/core';
+import { onUnmounted, type Ref, shallowRef, ref, unref, watch } from 'vue';
 import type { ECharts, EChartsCoreOption } from 'echarts/core';
 import { BarChart, LineChart } from 'echarts/charts';
 import {
@@ -26,16 +26,16 @@ import {
 } from 'echarts/components';
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
+// import { useThemeStore } from '@/stores/themeStore';
 
 export default function useEcharts(
-  elRef: Ref<HTMLElement | null>,
-  options: EChartsCoreOption
-): {
-  chartInstance: ECharts | null;
-  updateChart: (options: EChartsCoreOption) => void;
-} {
+  elRef: Ref<HTMLDivElement>,
+  theme: 'light' | 'dark' | 'default' = 'default'
+) {
   const { use, init } = echarts;
-  let chartInstance: ECharts | null = null;
+  let chartInstance = shallowRef<ECharts | null>(null);
+  let cacheOptions: Ref<EChartsCoreOption> = ref({});
+  // const useThemeStore = useCounterStore();
   use([
     BarChart,
     LineChart,
@@ -51,75 +51,132 @@ export default function useEcharts(
     ToolboxComponent,
   ]);
 
-  const handleSetOption = (options: EChartsCoreOption) => {
-    chartInstance && chartInstance?.setOption(options);
-  };
-  const initChart = () => {
-    if (elRef.value && options) {
-      if (!chartInstance) {
-        chartInstance = init(elRef.value);
-      }
-      handleSetOption(options);
-      window.addEventListener('resize', resize);
+  const resize = () => {
+    if (chartInstance.value) {
+      chartInstance.value.resize();
     }
   };
 
-  const updateChart = (options: EChartsCoreOption) => {
-    if (!chartInstance) initChart();
-    chartInstance?.clear();
-    chartInstance?.setOption(options);
+  const initChart = (t = theme) => {
+    const el = unref(elRef);
+    if (!el) return;
+    chartInstance.value = init(elRef.value, t);
+    window.addEventListener('resize', resize);
   };
 
-  const resize = () => {
-    if (chartInstance) {
-      chartInstance.resize();
+  const setChartOption = (options: EChartsCoreOption, clear = true) => {
+    cacheOptions.value = options;
+    if (!chartInstance?.value) initChart();
+    clear && chartInstance.value?.clear();
+    if (chartInstance.value) {
+      chartInstance.value?.setOption(options);
     }
   };
 
   const clearChart = () => {
-    chartInstance?.dispose();
-    chartInstance = null;
+    if (chartInstance.value) {
+      chartInstance.value?.dispose();
+      chartInstance.value = null;
+    }
   };
-
-  onMounted(() => {
-    initChart();
-  });
 
   onUnmounted(() => {
     clearChart();
     window.removeEventListener('resize', resize);
   });
 
+  /**
+   * 监听主题色变化
+   */
+  // watch(
+  //   () => countStore.theme,
+  //   () => {
+  //     chartInstance.value?.dispose();
+  //     initChart('dark');
+  //     setChartOption(cacheOptions.value);
+  //   }
+  // );
+
   return {
     chartInstance,
-    updateChart,
+    initChart,
+    setChartOption,
   };
 }
+
 ```
 
 使用的代码事例
 
 ```ts title="vue"
 import useEcharts from '@/hooks/useEcharts';
-import { ref, onMounted, nextTick, type Ref } from 'vue';
+import { ref, onMounted, type Ref } from 'vue';
 
 const chartRef: Ref<HTMLElement | null> = ref(null);
-const options = {
-  xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  },
-  yAxis: {
-    type: 'value',
-  },
-  series: [
-    {
-      data: [150, 230, 224, 218, 135, 147, 260],
-      type: 'line',
+const { setChartOption } = useEcharts(chartRef as Ref<HTMLDivElement>);
+onMounted(() => {
+  setChartOption({
+    tooltip: {
+      trigger: 'axis',
     },
-  ],
-};
-useEcharts(chartRef, options);
+    legend: {
+      show: true,
+    },
+    grid: {
+      left: '30',
+      right: '30',
+      bottom: '30',
+      top: '30',
+    },
+    toolbox: {
+      show: false,
+    },
+    calculable: true,
+    xAxis: [
+      {
+        type: 'category',
+        data: [2021, 2022, 2023, 2024, 2025],
+        axisLine: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+        },
+      },
+    ],
+    yAxis: [
+      {
+        type: 'value',
+      },
+      {
+        type: 'value',
+        interval: 5,
+        min: 0,
+        max: 10,
+      },
+    ],
+    series: [
+      {
+        name: '发电量',
+        type: 'bar',
+        data: [12, 23, 32, 43, 13],
+        yAxisIndex: 0,
+      },
+      {
+        name: '上网电量',
+        type: 'bar',
+        yAxisIndex: 0,
+        data: [13, 22, 33, 43, 89],
+      },
+      {
+        name: '风速',
+        type: 'bar',
+        yAxisIndex: 1,
+        data: [32, 32, 11, 22, 56],
+      },
+    ],
+  });
+});
 ```
 
 ```html title="html"

@@ -25,6 +25,8 @@
   @return $px / 750 * 100vw;
 }
 
+** 或者使用 postcss-px-to-viewport 插件解决适配 **
+
 /**
 * 使用
 */
