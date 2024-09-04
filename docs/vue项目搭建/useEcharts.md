@@ -10,11 +10,20 @@
 - 在 useEcharts 中定义 Echarts 的实例要使用 shallowRef，而不是 ref，如果使用 ref，会报 type 类型错误。不要使用 ref 或 reactive 包装 echarts 实例。 使用公共变量或 shallowRef 以避免对 echarts 实例进行深度监视。
   :::
 
+### useEcharts 封装
+
 ```ts title="@/hooks/useEcharts"
-iimport * as echarts from 'echarts/core';
-import { onUnmounted, type Ref, shallowRef, ref, unref, watch } from 'vue';
+import * as echarts from 'echarts/core';
+import { onUnmounted, type Ref, shallowRef, ref, unref } from 'vue';
 import type { ECharts, EChartsCoreOption } from 'echarts/core';
-import { BarChart, LineChart } from 'echarts/charts';
+import {
+  BarChart,
+  LineChart,
+  PieChart,
+  PictorialBarChart,
+  GaugeChart,
+  RadarChart,
+} from 'echarts/charts';
 import {
   TitleComponent,
   TooltipComponent,
@@ -26,8 +35,8 @@ import {
 } from 'echarts/components';
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
-// import { useThemeStore } from '@/stores/themeStore';
 
+export type EChartsOption = EChartsCoreOption;
 export default function useEcharts(
   elRef: Ref<HTMLDivElement>,
   theme: 'light' | 'dark' | 'default' = 'default'
@@ -35,10 +44,14 @@ export default function useEcharts(
   const { use, init } = echarts;
   let chartInstance = shallowRef<ECharts | null>(null);
   let cacheOptions: Ref<EChartsCoreOption> = ref({});
-  // const useThemeStore = useCounterStore();
+
   use([
     BarChart,
     LineChart,
+    PieChart,
+    GaugeChart,
+    RadarChart,
+    PictorialBarChart,
     TitleComponent,
     TooltipComponent,
     GridComponent,
@@ -60,7 +73,7 @@ export default function useEcharts(
   const initChart = (t = theme) => {
     const el = unref(elRef);
     if (!el) return;
-    chartInstance.value = init(elRef.value, t);
+    chartInstance.value = init(el, t);
     window.addEventListener('resize', resize);
   };
 
@@ -85,28 +98,48 @@ export default function useEcharts(
     window.removeEventListener('resize', resize);
   });
 
-  /**
-   * 监听主题色变化
-   */
-  // watch(
-  //   () => countStore.theme,
-  //   () => {
-  //     chartInstance.value?.dispose();
-  //     initChart('dark');
-  //     setChartOption(cacheOptions.value);
-  //   }
-  // );
-
   return {
     chartInstance,
     initChart,
     setChartOption,
   };
 }
-
 ```
 
-使用的代码事例
+### 公共 ChartComp 组件封装
+
+```ts
+<script setup lang="ts">
+import useEcharts, { type EChartsOption } from '@/hooks/useEcharts';
+import { nextTick } from 'vue';
+import { ref, watch, type Ref } from 'vue';
+
+interface Props {
+  chartOptions: EChartsOption; // echarts options
+}
+
+const chartRef: Ref<HTMLDivElement | null> = ref(null);
+const { setChartOption } = useEcharts(chartRef as Ref<HTMLDivElement>);
+const props = defineProps<Props>();
+
+watch(
+  () => props.chartOptions,
+  (newVal) => {
+    nextTick(() => {
+      setChartOption(newVal);
+    });
+  },
+  { immediate: true }
+);
+</script>
+<template>
+  <div ref="chartRef"></div>
+</template>
+
+<style></style>
+```
+
+### 使用的代码事例
 
 ```ts title="vue"
 import useEcharts from '@/hooks/useEcharts';
