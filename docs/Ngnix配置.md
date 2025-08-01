@@ -1,6 +1,7 @@
 # Ngnix 配置
 
 ### 配置 Ngnix
+
 ```js
 server {
  listen 80;
@@ -30,8 +31,7 @@ server {
 
 要开启 History 模式，vue router 的配置很简单，只要加上下面一句话：`mode: 'history'`，然后重新打包，上传到服务器，重启 Nginx 即可。
 
-开发时访问是正常的，但当打包部署后，会发现当访问 test.com/about 是正常的，但是刷新 test.com/about，就报404了。
-
+开发时访问是正常的，但当打包部署后，会发现当访问 test.com/about 是正常的，但是刷新 test.com/about，就报 404 了。
 
 ** try_files **
 
@@ -53,3 +53,18 @@ location /test {
 }
 ```
 
+### 路径代理
+
+**Nginx 路径代理主要通过 location 块配合 proxy_pass 指令实现**
+
+```
+server {
+    listen 80;
+    server_name example.com;  # 你的域名
+
+    # 路径代理配置
+    location /api/ {  # 匹配以 /api/ 开头的路径
+        proxy_pass http://backend-server:3000/;  # 转发到目标服务器
+    }
+}
+```
