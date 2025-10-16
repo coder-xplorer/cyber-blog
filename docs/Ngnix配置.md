@@ -65,6 +65,40 @@ server {
     # 路径代理配置
     location /api/ {  # 匹配以 /api/ 开头的路径
         proxy_pass http://backend-server:3000/;  # 转发到目标服务器
+
+        # CORS配置 - 允许所有域名
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization' always;
+
+        # 必须处理OPTIONS预检
+        if ($request_method = 'OPTIONS') {
+            add_header 'Access-Control-Allow-Origin' '*' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization' always;
+            add_header 'Access-Control-Max-Age' 1728000;
+            add_header 'Content-Type' 'text/plain; charset=utf-8';
+            add_header 'Content-Length' 0;
+            return 204;  # 直接返回204，不转发到后端
+        }
+
+        # 传递原始请求的Host头（域名）给后端
+        # 后端可以通过这个知道客户端访问的是哪个域名
+        proxy_set_header Host $host;
+
+        # 传递客户端的真实IP地址给后端
+        # 如果不设置，后端看到的IP会是nginx服务器的IP，而设置了这个头，后端就可以通过这个头知道客户端的真实IP
+        proxy_set_header X-Real-IP $remote_addr;
+
+        # 传递客户端IP的完整代理链
+        # 格式：客户端IP, 代理1 IP, 代理2 IP...
+        # 用于追踪请求经过的所有代理服务器
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        # 传递原始请求的协议（http或https）给后端
+        # 后端可以通过这个知道客户端用的是http还是https访问
+        # 常用于生成正确的重定向URL
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
 ```
