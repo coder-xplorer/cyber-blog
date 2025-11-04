@@ -102,3 +102,20 @@ server {
     }
 }
 ```
+
+
+### nginx中使用https
+
+需要下载 openssl 依赖安装，指定源码路径
+如果已经安装了 nginx，需要重新编译安装，指定 openssl 路径
+
+```
+cd nginx-1.28.0 //安装目录
+
+// 重新执行命令
+./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-openssl=/usr/local/openssl/openssl-3.0.17
+
+make
+
+cp objs/nginx /usr/local/nginx/sbin/nginx
+```
