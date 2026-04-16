@@ -7,10 +7,6 @@ on:
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
-env:
-  # 强制使用 Node.js 24，消除弃用警告
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     name: Build Docusaurus
@@ -21,11 +17,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 18
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --frozen-lockfile
       - name: Build website
         run: npm run build
 
