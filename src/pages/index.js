@@ -1,7 +1,7 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Record from '@site/src/components/Record';
-
+import FollowEyes from '@site/src/components/FollowEyes';
 const List = [
   {
     title: 'Iframe 通信',
@@ -29,6 +29,7 @@ export default function Home() {
   return (
     <Layout title={siteConfig.title} description={siteConfig.tagline}>
       <main style={{ margin: '0 auto' }}>
+        <FollowEyes />
         {List.map((record) => (
           <Record
             key={record.title}
