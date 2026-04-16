@@ -7,7 +7,7 @@ export default function Record(props) {
     <div className={styles.recordItem}>
       <div className={styles.itemTitle}>{title}</div>
       <div className={styles.itemAuth}>
-        <img src="img/Bob.jpg" />
+        <img src="img/avatar.jpg" />
         <div className={styles.nameBox}>
           <div className={styles.name}>乐游</div>
           <div className={styles.desc}>A Front-End Web Developer</div>
